@@ -19,7 +19,7 @@ class Solution:
             return False
         
         while left <= len(s)-1 and right <= len(t)-1:
-            print(f'left: {left}, right: {right}')
+
             if s[left] == t[right]:
                 left += 1
                 right += 1
