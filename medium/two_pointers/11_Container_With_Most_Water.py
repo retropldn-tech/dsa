@@ -7,7 +7,22 @@
 '''
 
 class Solution:
-    def maxArea(self, height: List[int]) -> int:
-        ...
-
+    def maxArea(self, height: list[int]) -> int:
+        cur_max_square = 1
+        left = 0
+        right = len(height)-1
+        while left <= right:
+            width = right - left
+            length = min(height[left], height[right])
+            if cur_max_square <= width*length:
+                cur_max_square = width*length
+            if height[left] > height[right]:
+                right -= 1
+            elif height[left] < height[right]:
+                left += 1
+            else:
+                left += 1
+                right -= 1
+        print(cur_max_square)
+        return cur_max_square
 assert Solution().maxArea(height = [1,8,6,2,5,4,8,3,7]) == 49
