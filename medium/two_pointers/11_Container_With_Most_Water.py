@@ -23,6 +23,5 @@ class Solution:
             else:
                 left += 1
                 right -= 1
-        print(cur_max_square)
         return cur_max_square
 assert Solution().maxArea(height = [1,8,6,2,5,4,8,3,7]) == 49
