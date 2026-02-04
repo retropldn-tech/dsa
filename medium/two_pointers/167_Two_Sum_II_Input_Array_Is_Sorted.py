@@ -19,7 +19,7 @@ class Solution:
             elif numbers[left] + numbers[right] > target:
                 right -=1
             elif numbers[left] + numbers[right] < target:
-                left -= 1
+                left += 1
 
 assert Solution().twoSum(numbers = [1,2,3,4], target = 3) == [1,2]
         

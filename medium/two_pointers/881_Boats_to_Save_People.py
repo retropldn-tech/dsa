@@ -8,17 +8,17 @@ Return the minimum number of boats to carry every given person.
 class Solution:
     def numRescueBoats(self, people: list[int], limit: int) -> int:
         people.sort()
-        boat_cnt = 0
-        l,r = 0, len(people)-1
-        while l<r:
-            if people[l] + people[r] > limit:
-                boat_cnt += 1 # <-- bc people[r] >= limit
-                r-=1
-            elif  people[l] + people[r] <= limit:
-                boat_cnt += 1
-                l += 1
-                r -=1
-        return boat_cnt
-            
+        result = 0
+        left, right = 0, len(people)-1
+        while left < right:
+            if people[left] + people[right] <= limit:
+                result += 1
+                left += 1
+                right -=1
+            elif people[left] + people[right] > limit:
+                result += 1
+                right -= 1
+        return result
+
 
 assert Solution().numRescueBoats(people = [1,2], limit = 3) == 1
