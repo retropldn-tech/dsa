@@ -1,0 +1,12 @@
+'''
+    Given an array of integers nums containing n + 1 integers where each integer is in the range [1, n] inclusive.
+    There is only one repeated number in nums, return this repeated number.
+    You must solve the problem without modifying the array nums and using only constant extra space.
+'''
+class Solution:
+    def findDuplicate(self, nums: list[int]) -> int:
+        ...
+
+assert Solution().findDuplicate(nums = [1,3,4,2,2]) == 2
+assert Solution().findDuplicate(nums = [3,1,3,4,2]) == 3
+assert Solution().findDuplicate(nums = [3,3,3,3,3]) == 3
