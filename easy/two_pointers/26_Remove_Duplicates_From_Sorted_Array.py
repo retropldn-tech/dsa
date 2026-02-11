@@ -8,12 +8,19 @@ contain the unique numbers in sorted order. The remaining elements beyond index 
 
 class Solution:
     def removeDuplicates(self, nums: list[int]) -> int:
-        last_unique_ind = 0
-        cnt_unique_nums = 1
-        for i in range(len(nums)):
-            if nums[last_unique_ind] != nums[i]:
-                last_unique_ind+=1
-                cnt_unique_nums+=1
-                nums[last_unique_ind], nums[i] = nums[i], nums[last_unique_ind]
-        return nums[:cnt_unique_nums]
+        if len(nums) == 0:
+            return 0
+        last_unique_element = 0
+        for read in range(1, len(nums)):
+            if nums[read] != nums[last_unique_element]:
+                last_unique_element += 1
+                nums[read], nums[last_unique_element] = nums[last_unique_element], nums[read]
+            while read<len(nums)-1 and nums[read] == nums[last_unique_element]:
+                read += 1
+        return last_unique_element+1
+    
+assert Solution().removeDuplicates(nums=[1,1]) == [1]
+assert Solution().removeDuplicates(nums=[0,0,1,1,1,2,2,3,3,4]) == [0,1,2,3,4]
+
 assert Solution().removeDuplicates(nums = [1,1,2,3,4]) == [1,2,3,4]
+
