@@ -10,14 +10,13 @@ class Solution:
     def removeDuplicates(self, nums: list[int]) -> int:
         if len(nums) == 0:
             return 0
-        last_unique_element = 0
-        for read in range(1, len(nums)):
-            if nums[read] != nums[last_unique_element]:
-                last_unique_element += 1
-                nums[read], nums[last_unique_element] = nums[last_unique_element], nums[read]
-            while read<len(nums)-1 and nums[read] == nums[last_unique_element]:
-                read += 1
-        return last_unique_element+1
+        
+        write = 1
+        for read in range(1,len(nums)):
+            if nums[read] != nums[read-1]:
+                nums[write] = nums[read]
+                write += 1
+        return nums[:write]
     
 assert Solution().removeDuplicates(nums=[1,1]) == [1]
 assert Solution().removeDuplicates(nums=[0,0,1,1,1,2,2,3,3,4]) == [0,1,2,3,4]
