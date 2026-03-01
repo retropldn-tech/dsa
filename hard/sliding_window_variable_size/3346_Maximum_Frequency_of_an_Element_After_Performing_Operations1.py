@@ -16,7 +16,6 @@ class Solution:
             while nums[right] - nums[left] > 2*k*numOperations:
                 left += 1
             res = max(res, right-left)
-        print(res)
         return res
 
 assert Solution().maxFrequency(nums = [1,4,5], k = 1, numOperations = 2) == 2
