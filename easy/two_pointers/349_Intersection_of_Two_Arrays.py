@@ -18,7 +18,6 @@ class Solution:
                 left += 1
             elif nums2[right] < nums1[left]:
                 right += 1
-        print(result)
         return list(result)
 
 assert Solution().intersection(nums1 = [1,2,2,1], nums2 = [2,2]) == [2]

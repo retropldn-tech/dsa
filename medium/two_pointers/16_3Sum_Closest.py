@@ -16,17 +16,12 @@ class Solution:
                 if abs(target - (nums[i] + nums[left] + nums[right])) < abs(target - ans):
                     ans = (nums[i] + nums[left] + nums[right])
 
-                print(ans, i, left, right )
-
                 if (nums[i] + nums[left] + nums[right]) == target:
                     return target
                 elif (nums[i] + nums[left] + nums[right]) > target:
                     right -= 1
                 elif (nums[i] + nums[left] + nums[right]) < target:
                     left += 1
-            
-            #closest_sum = min(closest_sum, abs(target - (nums[i] + nums[left] + nums[right])))
-        print(ans)
         return ans
 assert Solution().threeSumClosest(nums = [-1,2,1,-4], target = 1) == 2
 assert Solution().threeSumClosest(nums = [0,0,0], target = 1) == 0

@@ -10,7 +10,7 @@ class Solution:
         people.sort()
         result = 0
         left, right = 0, len(people)-1
-        while left < right:
+        while left <= right:
             if people[left] + people[right] <= limit:
                 result += 1
                 left += 1
